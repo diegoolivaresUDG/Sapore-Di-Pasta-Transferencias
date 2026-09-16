@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Diego E Olivares — Datos para transferencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f7f4ec;
+    --paper-edge: #ece7d8;
+    --ink: #1c1c1a;
+    --ink-soft: #55534a;
+    --accent: #1f6f5c;
+    --accent-soft: #e4efe9;
+    --rule: #d8d2c0;
+    --shadow: rgba(28, 28, 26, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1b1a16;
+      --paper-edge: #232019;
+      --ink: #f2efe4;
+      --ink-soft: #b7b2a0;
+      --accent: #6fbfa4;
+      --accent-soft: #23342d;
+      --rule: #3a362a;
+      --shadow: rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1b1a16;
+    --paper-edge: #232019;
+    --ink: #f2efe4;
+    --ink-soft: #b7b2a0;
+    --accent: #6fbfa4;
+    --accent-soft: #23342d;
+    --rule: #3a362a;
+    --shadow: rgba(0, 0, 0, 0.4);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--paper-edge);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 16px;
+  }
+
+  .stub {
+    width: 100%;
+    max-width: 380px;
+    background: var(--paper);
+    border-radius: 4px;
+    box-shadow: 0 12px 32px var(--shadow);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .stub::before,
+  .stub::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--paper-edge);
+    border-radius: 50%;
+    top: 148px;
+  }
+  .stub::before { left: -10px; }
+  .stub::after { right: -10px; }
+
+  .head {
+    padding: 28px 28px 20px;
+    text-align: center;
+  }
+
+  .head .mark {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+  }
+
+  .head h1 {
+    font-size: 21px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    line-height: 1.25;
+  }
+
+  .head p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .perf {
+    height: 0;
+    border-top: 2px dashed var(--rule);
+    margin: 0 20px;
+  }
+
+  .fields {
+    padding: 22px 22px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+
+  .field .info { min-width: 0; }
+
+  .field label {
+    display: block;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-bottom: 3px;
+  }
+
+  .field .value {
+    font-family: 'Space Mono', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  .field .value.clabe {
+    letter-spacing: 0.02em;
+    font-size: 14px;
+  }
+
+  .copy-btn {
+    flex: none;
+    border: none;
+    background: var(--accent);
+    color: var(--paper);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 9px 13px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: transform 0.12s ease, opacity 0.12s ease;
+  }
+  .copy-btn:active { transform: scale(0.94); }
+  .copy-btn.copied { background: var(--ink); }
+
+  .foot {
+    padding: 18px 28px 26px;
+    text-align: center;
+  }
+
+  .copy-all {
+    width: 100%;
+    border: 1.5px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .copy-all.copied {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--paper);
+  }
+
+  .hint {
+    margin: 12px 0 0;
+    font-size: 11.5px;
+    color: var(--ink-soft);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .copy-btn, .copy-all { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stub">
+  <div class="head">
+    <p class="mark">DATOS PARA TRANSFERENCIA</p>
+    <h1>Diego E Olivares</h1>
+    <p>Toca cualquier dato para copiarlo</p>
+  </div>
+
+  <div class="perf"></div>
+
+  <div class="fields">
+    <div class="field">
+      <div class="info">
+        <label>Titular</label>
+        <div class="value" id="v-titular">Diego E Olivares</div>
+      </div>
+      <button class="copy-btn" data-copy="Diego E Olivares" data-target="v-titular">Copiar</button>
+    </div>
+
+    <div class="field">
+      <div class="info">
+        <label>Institución</label>
+        <div class="value" id="v-banco">Nu México</div>
+      </div>
+      <button class="copy-btn" data-copy="Nu México" data-target="v-banco">Copiar</button>
+    </div>
+
+    <div class="field">
+      <div class="info">
+        <label>CLABE</label>
+        <div class="value clabe" id="v-clabe">6381 8000 0179 9877 73</div>
+      </div>
+      <button class="copy-btn" data-copy="638180000179987773" data-target="v-clabe">Copiar</button>
+    </div>
+  </div>
+
+  <div class="foot">
+    <button class="copy-all" id="copy-all">Copiar todo</button>
+    <p class="hint">Verifica siempre el nombre del titular antes de transferir.</p>
+  </div>
+</div>
+
+<script>
+  function flash(btn, done) {
+    const original = btn.textContent;
+    btn.textContent = done;
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1400);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve, reject) => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        resolve();
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  document.querySelectorAll('.copy-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const text = btn.getAttribute('data-copy');
+      copyText(text).then(() => flash(btn, 'Copiado ✓')).catch(() => flash(btn, 'No se pudo'));
+    });
+  });
+
+  document.getElementById('copy-all').addEventListener('click', function () {
+    const btn = this;
+    const all = 'Titular: Diego E Olivares\nInstitución: Nu México\nCLABE: 638180000179987773';
+    copyText(all).then(() => flash(btn, 'Todo copiado ✓')).catch(() => flash(btn, 'No se pudo'));
+  });
+</script>
+
+</body>
+</html>
